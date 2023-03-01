@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <title>compound Interest Calculator</title>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito',sans-serif;
+  }
+body {
+    background-color: #ff4c29;
+
+}
+ 
+
+.calculator {
+  width: 350px;
+  height: 620px;
+  background-color:purple;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  border-radius:10px;
+  box-shadow: 5px 5px 10px rgba(0,0 0, 0, 0.5);
+  text-align: center;
+  padding: 10px 0px;
+  color:white;
+  margin-top:30px;
+}
+
+h2 {
+margin-top:5px;
+margin-bottom: 5px;
+
+}
+ 
+input{
+width: 300px;
+height: 20px;
+padding: 5px;
+margin: 10px;
+border: none;
+outline: none;
+border-radius: 5px;
+}
+button {
+font-size: 16px;
+width: 250px;
+height: 20px;
+border-radius: 5px;
+border: none;
+color:#082032;
+background-color:red;
+font-weight: 999;
+}
+p {
+
+color: white;
+margin-top: 5px;
+
+}
+</style>
+</head>
+<body>
+   <div class="calculator">
+<h6>GCVR</h6>
+   <h2>Compound Interest Calculator</h2>
+   <input type="date" id="d1">
+    
+    <input type="date" id="d2">
+
+   <button onclick="calculateDays()">Get difference</button>
+
+   <p id="output"></p>
+
+    
+    <label for="amount">Principal Amount</label>
+ 
+    <input type="number" placeholder="Enter Principal Amount"
+    id="amount">
+ 
+
+    <label for="rate">Rate %</label>
+ 
+    <input type="number" placeholder="Enter Rate"
+    id="rate">
+   
+
+    <label for="time">Time(in Days)</label>
+ 
+    <input type="number" placeholder="Enter Time"
+    id="time">
+ 
+
+    <button onclick="answer()">Calculate</button>
+
+    <p>Principal Amount: <span id="output_1"></span></p>
+    <p>Total Interest: <span id="output_2"></span></p>
+    <p>Total Value: <span id="output_3"></span></p>
+ 
+   <h6>use up to 6years compound interst calculator is working,more than 6years simplecalculator is on<h6>
+  </div>
+ <script>
+
+    function calculateDays(){
+    var d1=document.getElementById("d1").value;
+    var d2=document.getElementById("d2").value;
+    const dateOne=new Date(d1);
+    const dateTwo=new Date(d2);
+    const time=Math.abs(dateTwo-dateOne);
+    const days=Math.ceil(time/(1000*60*60*24));
+    document.getElementById("output").innerHTML = days;
+
+   } 
+
+  </script>
+<script>
+  function answer(){
+    var amount_input=parseFloat(document.
+    getElementById("amount").value);
+    var rate_input=parseFloat(document
+    .getElementById("rate").value);
+    var time_input=parseFloat(document.
+    getElementById("time").value);
+
+  if(time_input<360){ var interest=amount_input*rate_input*time_input/3000;
+   var total=interest + amount_input;
+
+
+}else if(time_input>=360 && time_input<720){
+
+var interestfy=amount_input*rate_input*360/3000;
+
+var interestrmy=(amount_input+interestfy)*rate_input*(time_input-360)/3000;
+
+var interest= interestfy+interestrmy;
+
+var total=interest + amount_input;
+
+
+
+
+}else if(time_input>=720 && time_input<1080){
+
+var interestfy=amount_input*rate_input*360/3000;
+
+var interestsy=(amount_input+interestfy)*rate_input*360/3000;
+
+var interestrmy=(amount_input+interestfy+interestsy)*rate_input*(time_input-720)/3000;
+
+var interest= interestfy+interestsy+interestrmy;
+
+var total=interest + amount_input;
+
+
+
+
+}else if(time_input>=1080 && time_input<1440){
+
+var interestfy=amount_input*rate_input*360/3000;
+
+var interestsy=(amount_input+interestfy)*rate_input*360/3000;
+
+var interestthrdy=(amount_input+interestfy+interestsy)*rate_input*360/3000;
+
+var interestrmy=(amount_input+interestfy+interestsy+interestthrdy)*(time_input-1080)/3000;
+
+var interest= interestfy+interestsy+interestthrdy+interestrmy;
+
+var total=interest + amount_input;
+
+
+
+
+}else if(time_input>=1440 && time_input<1800){
+
+var interestfy=amount_input*rate_input*360/3000;
+
+var interestsy=(amount_input+interestfy)*rate_input*360/3000;
+
+var interestthrdy=(amount_input+interestfy+interestsy)*rate_input*360/3000;
+
+var interestfrthy=(amount_input+interestfy+interestsy+interestthrdy)*rate_input*360/3000;
+
+var interestrmy=(amount_input+interestfy+interestsy+interestthrdy+interestfrthy)*rate_input*(time_input-1440)/3000;
+
+var interest= interestfy+interestsy+interestthrdy+interestfrthy+interestrmy;
+
+var total=interest + amount_input;
+
+
+
+
+}else if(time_input>=1800 && time_input<2160){
+
+var interestfy=amount_input*rate_input*360/3000;
+
+var interestsy=(amount_input+interestfy)*rate_input*360/3000;
+
+var interestthrdy=(amount_input+interestfy+interestsy)*rate_input*360/3000;
+
+var interestfrthy=(amount_input+interestfy+interestsy+interestthrdy)*rate_input*360/3000;
+
+var interestfifthy=(amount_input+interestfy+interestsy+interestthrdy+interestfrthy)*rate_input*360/3000;
+
+var interestrmy=(amount_input+interestfy+interestsy+interestthrdy+interestfrthy+interestfifthy)*rate_input*(time_input-1800)/3000;
+
+var interest= interestfy+interestsy+interestthrdy+interestfrthy+interestfifthy+interestrmy;
+
+var total=interest + amount_input;
+
+
+
+
+}else{
+
+       var interest=Math.round(amount_input*rate_input*time_input/3000);
+
+       var total=Math.round(interest + amount_input);
+
+}
+    
+   document.getElementById("output_1").
+   innerHTML = amount_input;
+   document.getElementById("output_2").
+   innerHTML = interest;
+   document.getElementById("output_3").
+   innerHTML = total;
+
+ }
+
+</script> 
+  
+</body>
+</html>
